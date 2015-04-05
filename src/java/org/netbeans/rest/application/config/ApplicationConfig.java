@@ -10,13 +10,15 @@ import javax.ws.rs.core.Application;
 
 /**
  *
- * @author C0648301
+ * @author C0631942
  */
 @javax.ws.rs.ApplicationPath("rs")
-public class ApplicationConfig extends Application {
+public class ApplicationConfig extends Application 
+{
 
     @Override
-    public Set<Class<?>> getClasses() {
+    public Set<Class<?>> getClasses() 
+    {
         Set<Class<?>> resources = new java.util.HashSet<>();
         addRestResourceClasses(resources);
         return resources;
@@ -27,8 +29,8 @@ public class ApplicationConfig extends Application {
      * populated with all resources defined in the project. If required, comment
      * out calling this method in getClasses().
      */
-    private void addRestResourceClasses(Set<Class<?>> resources) {
+    private void addRestResourceClasses(Set<Class<?>> resources) 
+    {
         resources.add(Services.ProductREST.class);
     }
-
 }
