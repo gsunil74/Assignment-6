@@ -22,27 +22,33 @@ import javax.json.JsonObject;
 
 /**
  *
- * @author C0648301
+ * @author C0631942
  */
 @MessageDriven(mappedName = "jms/Queue")
-public class ProductListener implements MessageListener {
-
+public class ProductListener implements MessageListener 
+{
     @Inject
     ProductList ProductList;
 
     @Override
-    public void onMessage(Message message) {
-        try {
-            if (message instanceof TextMessage) {
+    public void onMessage(Message message) 
+    {
+        try 
+        {
+            if (message instanceof TextMessage) 
+            {
                 String jsonString = ((TextMessage) message).getText();
                 JsonObject json = Json.createReader(new StringReader(jsonString)).readObject();
                 ProductList.add(new Product(json));
             }
-        } catch (JMSException ex) {
+        } 
+        catch (JMSException ex) 
+        {
             System.err.println("JMS Failure");
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) 
+        {
             Logger.getLogger(ProductListener.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }
